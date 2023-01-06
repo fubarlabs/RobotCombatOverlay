@@ -1,0 +1,114 @@
+[
+    {
+        "id": "5344455f6e19509d",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "b47a3ecd7335e26d",
+        "type": "websocket in",
+        "z": "5344455f6e19509d",
+        "name": "",
+        "server": "ecf511f524f45a86",
+        "client": "",
+        "x": 370,
+        "y": 220,
+        "wires": [
+            [
+                "bc4d50cf7add440d",
+                "15162020d25b74b9"
+            ]
+        ]
+    },
+    {
+        "id": "bc4d50cf7add440d",
+        "type": "debug",
+        "z": "5344455f6e19509d",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 540,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "e3946dbf06b6f81d",
+        "type": "websocket out",
+        "z": "5344455f6e19509d",
+        "name": "",
+        "server": "f4a62c9d9e75d172",
+        "client": "",
+        "x": 730,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "01d41e0062e0cc8e",
+        "type": "inject",
+        "z": "5344455f6e19509d",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 540,
+        "y": 340,
+        "wires": [
+            [
+                "e3946dbf06b6f81d"
+            ]
+        ]
+    },
+    {
+        "id": "15162020d25b74b9",
+        "type": "function",
+        "z": "5344455f6e19509d",
+        "name": "function 1",
+        "func": "return {payload: msg.payload};",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 540,
+        "y": 280,
+        "wires": [
+            [
+                "e3946dbf06b6f81d"
+            ]
+        ]
+    },
+    {
+        "id": "ecf511f524f45a86",
+        "type": "websocket-listener",
+        "path": "receive",
+        "wholemsg": "false"
+    },
+    {
+        "id": "f4a62c9d9e75d172",
+        "type": "websocket-listener",
+        "path": "publish",
+        "wholemsg": "false"
+    }
+]
