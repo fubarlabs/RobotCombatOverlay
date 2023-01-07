@@ -2,7 +2,7 @@
 Arena and stream display for robot combat events
 
 ## To Use
-Import `websocket server.json` into Node Red. Deploy to create a websocket server allowing communication between `overlay.html` and `controls.html`. Open 'overlay.html' as a browser source in OBS. Use 'controls.html' to control it. Running the HTML files as local files *should* work, but if not, I've been running it using the Live Server extension in VS Code
+Import `websocket server.json` into Node Red. Deploy to create a websocket server allowing communication between `overlay.html` and `controls.html`. Open `overlay.html` as a browser source in OBS. Use `controls.html` to control it. Running the HTML files as local files *should* work, but if not, I've been running it using the Live Server extension in VS Code
 
 ## Notes
 This is very much a work in progress. There's enough here that I'm comfortable saying I can have v1 working this weekend. The background image on the overlay is just there so I have something to simulate the effect of putting the overlay over a video of the arena.
