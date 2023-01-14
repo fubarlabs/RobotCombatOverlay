@@ -18,27 +18,9 @@
         "y": 220,
         "wires": [
             [
-                "bc4d50cf7add440d",
                 "15162020d25b74b9"
             ]
         ]
-    },
-    {
-        "id": "bc4d50cf7add440d",
-        "type": "debug",
-        "z": "5344455f6e19509d",
-        "name": "debug 1",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 540,
-        "y": 220,
-        "wires": []
     },
     {
         "id": "e3946dbf06b6f81d",
@@ -50,35 +32,6 @@
         "x": 730,
         "y": 280,
         "wires": []
-    },
-    {
-        "id": "01d41e0062e0cc8e",
-        "type": "inject",
-        "z": "5344455f6e19509d",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 540,
-        "y": 340,
-        "wires": [
-            [
-                "e3946dbf06b6f81d"
-            ]
-        ]
     },
     {
         "id": "15162020d25b74b9",
@@ -100,6 +53,51 @@
         ]
     },
     {
+        "id": "5a12e928c2cf6fec",
+        "type": "websocket in",
+        "z": "5344455f6e19509d",
+        "name": "",
+        "server": "6ecb0c1ccb5c0c65",
+        "client": "",
+        "x": 410,
+        "y": 480,
+        "wires": [
+            [
+                "e817726850d214a9"
+            ]
+        ]
+    },
+    {
+        "id": "e817726850d214a9",
+        "type": "function",
+        "z": "5344455f6e19509d",
+        "name": "function 2",
+        "func": "return {payload: msg.payload};",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 560,
+        "y": 540,
+        "wires": [
+            [
+                "c1f0431eba7cfaba"
+            ]
+        ]
+    },
+    {
+        "id": "c1f0431eba7cfaba",
+        "type": "websocket out",
+        "z": "5344455f6e19509d",
+        "name": "",
+        "server": "82bf9342d227a020",
+        "client": "",
+        "x": 770,
+        "y": 580,
+        "wires": []
+    },
+    {
         "id": "ecf511f524f45a86",
         "type": "websocket-listener",
         "path": "receive",
@@ -109,6 +107,18 @@
         "id": "f4a62c9d9e75d172",
         "type": "websocket-listener",
         "path": "publish",
+        "wholemsg": "false"
+    },
+    {
+        "id": "6ecb0c1ccb5c0c65",
+        "type": "websocket-listener",
+        "path": "receiveTimer",
+        "wholemsg": "false"
+    },
+    {
+        "id": "82bf9342d227a020",
+        "type": "websocket-listener",
+        "path": "publishTimer",
         "wholemsg": "false"
     }
 ]
