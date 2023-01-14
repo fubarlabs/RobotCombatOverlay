@@ -1,8 +1,11 @@
-const ws = new WebSocket('ws://127.0.0.1:1880/receive');
-const wsTimer = new WebSocket('Ws://127.0.0.1:1880/receiveTimer');
+const ws = new WebSocket('ws://192.168.1.155:1880/receive');
+const wsTimer = new WebSocket('ws://192.168.1.155:1880/receiveTimer');
+// const ws = new WebSocket('ws://127.0.0.1:1880/receive');
+// const wsTimer = new WebSocket('ws://127.0.0.1:1880/receiveTimer');
 const matchLength = 150;
 let timeRemaining = matchLength;
 let timerPaused = false;
+let running = false;
 
 ws.onopen = (event) => {
     console.log(`Connected to ${event.target.url} succesfully`);
@@ -48,6 +51,7 @@ function countDown() {
 // timerInterval = setInterval(countDown, 1000);
 
 resetBtn.addEventListener('click', () => {
+    running = false;
     clearInterval(timerInterval);
     timeRemaining = matchLength;
     wsTimer.send(timeRemaining);
@@ -56,6 +60,10 @@ pauseBtn.addEventListener('click', () => {
     timerPaused = !timerPaused;
 })
 startBtn.addEventListener('click', () => {
+    console.log(`running? ${running}`);
     wsTimer.send(timeRemaining);
-    timerInterval = setInterval(countDown, 1000);
+    if (!running) {
+        timerInterval = setInterval(countDown, 1000);
+        running = true;
+    }
 })

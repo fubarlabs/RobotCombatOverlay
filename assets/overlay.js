@@ -1,5 +1,7 @@
-const ws = new WebSocket('ws://127.0.0.1:1880/publish');
-const wsTimer = new WebSocket('ws://127.0.0.1:1880/publishTimer');
+const ws = new WebSocket('ws://192.168.1.155:1880/publish');
+const wsTimer = new WebSocket('ws://192.168.1.155:1880/publishTimer');
+// const ws = new WebSocket('ws://127.0.0.1:1880/publish');
+// const wsTimer = new WebSocket('ws://127.0.0.1:1880/publishTimer');
 
 const redText = document.getElementById('red-text');
 const blueText = document.getElementById('blue-text');
