@@ -1,8 +1,8 @@
 body {
     height: 100vh;
-    background-image: url('testbg.jpg');
+    /* background-image: url('testbg.jpg');
     background-size: cover;
-    background-repeat: no-repeat;
+    background-repeat: no-repeat; */
 }
 
 p {
@@ -20,7 +20,7 @@ p {
 }
 
 .overlay-bar {
-    background-color: #fff6;
+    background-color: #fff8;
     /* border: 1px dotted white; */
     display: flex;
     align-items: center;
@@ -32,7 +32,7 @@ p {
 }
 
 .detail-bar {
-    font-size: 1.25rem;
+    font-size: 2rem;
 }
 
 .left-bar {
