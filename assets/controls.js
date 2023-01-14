@@ -1,5 +1,8 @@
 const ws = new WebSocket('ws://127.0.0.1:1880/receive');
 const wsTimer = new WebSocket('Ws://127.0.0.1:1880/receiveTimer');
+const matchLength = 150;
+let timeRemaining = matchLength;
+let timerPaused = false;
 
 ws.onopen = (event) => {
     console.log(`Connected to ${event.target.url} succesfully`);
@@ -30,12 +33,29 @@ updateBtn.addEventListener('click', () => {
     ws.send(message);
 })
 
+
+function countDown() {
+    console.log(`There are ${timeRemaining} seconds remaining`);
+    if (!timerPaused) {
+        timeRemaining -= 1;
+    }
+    if (timeRemaining <= 0) {
+        clearInterval(timerInterval);
+    }
+    wsTimer.send(timeRemaining);
+}
+
+// timerInterval = setInterval(countDown, 1000);
+
 resetBtn.addEventListener('click', () => {
-    wsTimer.send('reset');
+    clearInterval(timerInterval);
+    timeRemaining = matchLength;
+    wsTimer.send(timeRemaining);
 })
 pauseBtn.addEventListener('click', () => {
-    wsTimer.send('pause');
+    timerPaused = !timerPaused;
 })
 startBtn.addEventListener('click', () => {
-    wsTimer.send('start');
+    wsTimer.send(timeRemaining);
+    timerInterval = setInterval(countDown, 1000);
 })

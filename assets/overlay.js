@@ -39,6 +39,5 @@ ws.onmessage = (msg) => {
 }
 
 wsTimer.onmessage = (msg) => {
-    command = msg.data;
-    console.log(command);
+    timerText.innerText = msg.data;
 }
