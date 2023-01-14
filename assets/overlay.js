@@ -1,11 +1,18 @@
-const ws = new WebSocket('ws://127.0.0.1:1880/publish')
+const ws = new WebSocket('ws://127.0.0.1:1880/publish');
+const wsTimer = new WebSocket('ws://127.0.0.1:1880/publishTimer');
+
 const redText = document.getElementById('red-text');
 const blueText = document.getElementById('blue-text');
 const weightClassText = document.getElementById('weight-class-text');
 const matchText = document.getElementById('match-type-text');
+const timerText = document.getElementById('timer-text');
 
 ws.onopen = (event) => {
     console.log(`Connected to ${event.target.url} succesfully`);
+}
+
+wsTimer.onopen = (event) => {
+    console.log(`Connected to ${event.target.url} successfully`);
 }
 
 ws.onmessage = (msg) => {
@@ -29,4 +36,9 @@ ws.onmessage = (msg) => {
     blueText.innerText = overlayInfo['blue'];
     weightClassText.innerText = overlayInfo['weightClass'];
     matchText.innerText = overlayInfo['match'];
+}
+
+wsTimer.onmessage = (msg) => {
+    command = msg.data;
+    console.log(command);
 }
