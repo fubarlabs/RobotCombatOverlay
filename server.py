@@ -6,7 +6,7 @@ async def handler(websocket):
         print(message)
 
 async def main():
-    async with websockets.serve(handler, "", 8001):
+    async with websockets.serve(handler, "localhost", 8001):
         await asyncio.Future()
 
 ####################################################
