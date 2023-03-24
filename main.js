@@ -1,12 +1,13 @@
 const socket = new WebSocket('ws://localhost:8001');
-const button = document.getElementById('btn');
+const textInput = document.getElementById('textInput');
+const btn = document.getElementById('sendBtn');
 
 socket.addEventListener('open', (event) => {
     console.log(`Connected to ${event.target.url}`);
+    socket.send('Hello from a control panel');
 })
 
-button.addEventListener('click', (event) => {
-    console.log(event);
-    let message = {'x': event.clientX, 'y': event.clientY};
-    socket.send(JSON.stringify(message));
+btn.addEventListener('click', (event) => {
+    let msg = textInput.value;
+    socket.send(msg);
 })
