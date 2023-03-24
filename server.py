@@ -2,11 +2,7 @@ import asyncio
 import websockets
 
 async def handler(websocket):
-    while True:
-        try:
-            message = await websocket.recv()
-        except websockets.ConnectionClosedOK:
-            break
+    async for message in websocket:
         print(message)
 
 async def main():
