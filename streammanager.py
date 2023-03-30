@@ -1,7 +1,7 @@
 """
-Event structure:
+Events
 
-    type: user, update
+    Types: users, value, match
 
 """
 
@@ -18,6 +18,9 @@ VALUE = ""
 def users_event():
     return json.dumps({'type': 'users', 'count': len(USERS)})
 
+def value_event():
+    return json.dumps({'type': 'value', 'value': VALUE})
+
 async def stream_overlay(websocket):
     global USERS, VALUE
     try:
@@ -26,12 +29,17 @@ async def stream_overlay(websocket):
         websockets.broadcast(USERS, users_event())
 
         # send current state to user, currently a placeholder
-        # await websocket.send(f"current saved value: {VALUE}")
+        await websocket.send(value_event())
 
         # manage state changes
         async for message in websocket:
-            VALUE = message
-            # websockets.broadcast(USERS, f"new value: {VALUE}")
+            event = json.loads(message)
+            if event['type'] == 'match':
+                VALUE = event['value']
+                print(VALUE);
+                websockets.broadcast(USERS, value_event())
+            else:
+                logging.error(f"unsupported event type: {event}")
     
     finally:
         # unregister user
