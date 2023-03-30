@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 console.log(`A user connected or disconnected. There are currently ${event.count} users.`);
                 userCount.innerText = event.count;
                 break;
-            case 'value':
+            case 'match':
                 const match = event.value;
                 console.log(match);
                 weightClass.innerText = match.weightClass;

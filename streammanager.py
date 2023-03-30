@@ -1,7 +1,7 @@
 """
 Events
 
-    Types: users, value, match
+    Types: users, match
 
 """
 
@@ -13,31 +13,31 @@ import logging
 logging.basicConfig()
 
 USERS = set()
-VALUE = ""
+MATCH = ""
 
 def users_event():
     return json.dumps({'type': 'users', 'count': len(USERS)})
 
-def value_event():
-    return json.dumps({'type': 'value', 'value': VALUE})
+def match_event():
+    return json.dumps({'type': 'match', 'value': MATCH})
 
 async def stream_overlay(websocket):
-    global USERS, VALUE
+    global USERS, MATCH
     try:
         # register and announce user
         USERS.add(websocket)
         websockets.broadcast(USERS, users_event())
 
         # send current state to user, currently a placeholder
-        await websocket.send(value_event())
+        await websocket.send(match_event())
 
         # manage state changes
         async for message in websocket:
             event = json.loads(message)
             if event['type'] == 'match':
-                VALUE = event['value']
-                print(VALUE);
-                websockets.broadcast(USERS, value_event())
+                MATCH = event['value']
+                print(MATCH);
+                websockets.broadcast(USERS, match_event())
             else:
                 logging.error(f"unsupported event type: {event}")
     
