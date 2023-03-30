@@ -1,3 +1,10 @@
+"""
+Event structure:
+
+    type: user, update
+
+"""
+
 import asyncio
 import websockets
 import json
@@ -11,28 +18,20 @@ VALUE = ""
 def users_event():
     return json.dumps({'type': 'users', 'count': len(USERS)})
 
-def value_event():
-    return json.dumps({'type': 'value', 'value': VALUE})
-
 async def stream_overlay(websocket):
     global USERS, VALUE
     try:
-        # register user
+        # register and announce user
         USERS.add(websocket)
         websockets.broadcast(USERS, users_event())
 
         # send current state to user, currently a placeholder
-        await websocket.send(value_event())
+        # await websocket.send(f"current saved value: {VALUE}")
 
         # manage state changes
         async for message in websocket:
-            event = json.loads(message)
-            if event['type'] == 'update':
-                VALUE = event['value']
-                print(f'Updated the value to {VALUE}')
-                websockets.broadcast(USERS, value_event())
-            else:
-                logging.error(f'unsupported event: {event}')
+            VALUE = message
+            # websockets.broadcast(USERS, f"new value: {VALUE}")
     
     finally:
         # unregister user
