@@ -6,5 +6,61 @@ body {
     background-repeat: no-repeat;
     font-family: Rubik, sans-serif;
     font-weight: 600;
-    font-size: x-large;
+    max-width: 75%;
+    margin-inline: auto;
+}
+
+p {
+    margin: 0;
+}
+
+#overlayBar {
+    display: grid;
+    gap: .1rem;
+    grid-template-columns: 3fr 1fr 3fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+    "event event event" 
+    "red time blue"
+    "weightClass time match";
+}
+
+#redBar, #blueBar, #timeBar, #eventBar, #weightBar, #matchBar {
+    display: flex;
+    gap: 1rem;
+    /* outline: solid 2px #333; */
+    background-color: #cccc;
+    align-items: center;
+    justify-content: center;
+    padding: .5rem;
+}
+
+#redBar {
+    grid-area: red;
+    font-size: 2rem;
+}
+
+#blueBar {
+    grid-area: blue;
+    font-size: 2rem;
+}
+
+#timeBar {
+    grid-area: time;
+    font-size: 3rem;
+    padding: .5rem 2rem;
+}
+
+#eventBar {
+    grid-area: event;
+}
+
+#weightBar {
+    grid-area: weightClass;
+    font-size: 1.25rem;
+}
+
+#matchBar {
+    grid-area: match;
+    font-size: 1.25rem;
 }

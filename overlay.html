@@ -10,12 +10,33 @@
     <title>Overlay</title>
 </head>
 <body>
-    <p id="leagueName">GSCRL</p>
-    <img src="/assets/logos/gscrl_color_trans.png" alt="GSCRL Logo" id="gscrlLogo" style="width: 5vw;">
-    <p id="eventName">Mechanical Mayhem - 4/1/23</p>
-    <p id="timer">0:00</p>
-    <p id="weightClass">Weight Class</p>
-    <p id="redBot">Red Robot</p>
-    <p id="blueBot">Blue Robot</p>
+    <div id="overlayBar">
+        <div id="redBar">
+            <p id="redBot">Red Robot</p>
+        </div>
+
+        <div id="blueBar">
+            <p id="blueBot">Blue Robot</p>
+        </div>
+
+        <div id="eventBar">
+            <p id="leagueName">GSCRL</p>
+            <!-- <img src="/assets/logos/gscrl_color_trans.png" alt="GSCRL Logo" id="gscrlLogo" style="width: 10%;height: auto; "> -->
+            <p id="eventName">Mechanical Mayhem - 4/1/23</p>
+        </div>
+
+        <div id="timeBar">
+            <p id="timer">0:00</p>
+        </div>
+
+        <div id="weightBar">
+            <p id="weightClass">Weight Class</p>
+        </div>
+
+        <div id="matchBar">
+            <p id="matchInfo">Match Info</p>
+        </div>
+    </div>
+    <script src="overlay.js"></script>
 </body>
 </html>
