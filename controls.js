@@ -1,11 +1,17 @@
 document.addEventListener('DOMContentLoaded', () => {
     const ws = new WebSocket('ws://localhost:8001');
     const userCount = document.getElementById('usersCount');
-    const sendBtn = document.getElementById('clicky');
-    const txtVal = document.getElementById('textBox');
+    const weightClass = document.getElementById('weightClass');
+    const redBot = document.getElementById('redBot');
+    const blueBot = document.getElementById('blueBot');
+    const updateBtn = document.getElementById('update');
 
-    sendBtn.addEventListener('click', () => {
-        ws.send(JSON.stringify({type: 'match', value: txtVal.value}));
+    updateBtn.addEventListener('click', () => {
+        ws.send(JSON.stringify({type: 'match', value: {
+            weightClass: weightClass.value,
+            redBot: redBot.value,
+            blueBot: blueBot.value
+        }}));
     })
 
     ws.onmessage = ({ data }) => {
