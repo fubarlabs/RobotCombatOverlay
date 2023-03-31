@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const weightClass = document.getElementById('weightClass');
     const redBot = document.getElementById('redBot');
     const blueBot = document.getElementById('blueBot');
+    const matchInfo = document.getElementById('matchInfo');
 
     ws.onmessage = ({ data }) => {
         // variable name is data because we're destructuring the data key from the message.
@@ -19,6 +20,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 weightClass.innerText = match.weightClass;
                 redBot.innerText = match.redBot;
                 blueBot.innerText = match.blueBot;
+                matchInfo.innerText = match.matchInfo;
+                
                 break;
             default:
                 console.log(`I'm not sure what to do with ${event.type} events.`);

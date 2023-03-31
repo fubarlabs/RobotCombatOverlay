@@ -35,6 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const redBot = document.getElementById('redBot');
     const blueBot = document.getElementById('blueBot')
     const updateBtn = document.getElementById('update');
+    const matchInfo = document.getElementById('matchInfo');
     
     setupWeightClasses(robots, weightSelect);
     weightSelect.addEventListener('change', () => {
@@ -48,7 +49,8 @@ document.addEventListener('DOMContentLoaded', () => {
             value: {
                 weightClass: weightSelect.value,
                 redBot: redBot.value,
-                blueBot: blueBot.value
+                blueBot: blueBot.value,
+                matchInfo: matchInfo.value
             }
         }));
     });

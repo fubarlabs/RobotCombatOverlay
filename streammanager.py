@@ -36,7 +36,7 @@ async def stream_overlay(websocket):
             event = json.loads(message)
             if event['type'] == 'match':
                 MATCH = event['value']
-                print(MATCH);
+                print(MATCH)
                 websockets.broadcast(USERS, match_event())
             else:
                 logging.error(f"unsupported event type: {event}")
