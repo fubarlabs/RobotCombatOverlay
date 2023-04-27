@@ -1,54 +1,18 @@
 """
-Events
+TOPICS
 
-    Types: users, match
+topic       | description
+------------|-------------------------------------------------------------------------
+botcontrol  | Arena controller sends match state
+            | provides match state + time remaining (seconds) + match length (seconds)
+------------|-------------------------------------------------------------------------
+timecontrol | Send restart signal and time modifier to arena controller
+            | format: r for reset, a<int> to add <int> seconds
+------------|-------------------------------------------------------------------------
+matchupdate | Match info
+            | Needs to contain: weight class, red robot, blue robot, match type
 
 """
+import robotdata
 
-import asyncio
-import websockets
-import json
-import logging
-
-logging.basicConfig()
-
-USERS = set()
-MATCH = ""
-
-def users_event():
-    return json.dumps({'type': 'users', 'count': len(USERS)})
-
-def match_event():
-    return json.dumps({'type': 'match', 'value': MATCH})
-
-async def stream_overlay(websocket):
-    global USERS, MATCH
-    try:
-        # register and announce user
-        USERS.add(websocket)
-        websockets.broadcast(USERS, users_event())
-
-        # send current state to user, currently a placeholder
-        await websocket.send(match_event())
-
-        # manage state changes
-        async for message in websocket:
-            event = json.loads(message)
-            if event['type'] == 'match':
-                MATCH = event['value']
-                print(MATCH)
-                websockets.broadcast(USERS, match_event())
-            else:
-                logging.error(f"unsupported event type: {event}")
-    
-    finally:
-        # unregister user
-        USERS.remove(websocket)
-        websockets.broadcast(USERS, users_event())
-
-async def main():
-    async with websockets.serve(stream_overlay, 'localhost', 8001):
-        await asyncio.Future()
-
-if __name__ == '__main__':
-    asyncio.run(main())
+print(robotdata.robots.keys())

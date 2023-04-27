@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/sakura.css/css/sakura.css" type="text/css">
+    <title>Document</title>
+</head>
+
+<style>
+    #controlPanel {
+        display: grid;
+        grid-template-columns: .8fr 1.5fr .5fr;
+        gap: 1rem;
+    }
+
+    div {
+        /* border: 1px solid black; */
+    }
+</style>
+
+<body>
+    <h1>Arena Control Panel</h1>
+    <hr>
+    <div id="controlPanel">
+
+
+
+        <div id="weightClassControls">
+
+            <label for="antRadio">Antweight
+                <input type="radio" name="weightClass" id="antRadio">
+            </label>
+            <label for="plantRadio">Plastic Ant
+                <input type="radio" name="weightClass" id="plantRadio">
+            </label>
+            <label for="beetleRadio">Beetleweight
+                <input type="radio" name="weightClass" id="beetleRadio">
+            </label>
+            <label for="freeformRadio">Other
+                <input type="radio" name="weightClass" id="freeformRadio" disabled>
+            </label>
+        </div>
+
+        <div id="matchDetailControls">
+            <div id="robotNameSelects">
+
+                <div style="display: flex;gap: 1rem;">
+                    <label for="redSelect">Red
+                        <select name="redSelect" id="redSelect"></select>
+                    </label>
+                    <label for="blueSelect">Blue
+                        <select name="blueSelect" id="blueSelect"></select>
+                    </label>
+                </div>
+            </div>
+
+            <label for="matchName">Match Name
+                <input type="text" name="matchName" id="matchName">
+            </label>
+            <button id="updateMatch">Update Match</button>
+        </div>
+
+        <div id="timerControls">
+            <button id="timerResetButton">Reset Timer</button>
+
+            <label for="timerIncrement">Increase timer
+
+                <input type="number" name="timerIncrement" id="timerIncrement">
+                <button id="timerIncrementButton">Add time</button>
+            </label>
+
+
+        </div>
+    </div>
+    <script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
+    <script src="controlpanel.js"></script>
+</body>
+
+</html>
