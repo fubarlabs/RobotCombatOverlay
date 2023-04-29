@@ -6,7 +6,7 @@ body {
     /* background-repeat: no-repeat; */
     font-family: Rubik, sans-serif;
     font-weight: 600;
-    max-width: 75vw;
+    max-width: 50vw;
     margin-inline: auto;
 }
 
@@ -21,7 +21,7 @@ p {
     grid-template-columns: 3fr 1.5fr 3fr;
     grid-template-rows: auto;
     grid-template-areas:
-    "event match weightClass" 
+    "weightClass match event" 
     "red time blue";
 }
 
