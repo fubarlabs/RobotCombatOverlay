@@ -1,4 +1,4 @@
-robots = {
+const robots = {
     'ant': [
         'Silver Bullet',
         'Shin Kicker',
@@ -40,3 +40,5 @@ robots = {
         'Triton'
     ]
 }
+
+export default robots;

@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;600;800&display=swap');
+
+body {
+    /* background-image: url("assets/testbg.jpg"); */
+    /* background-size: cover; */
+    /* background-repeat: no-repeat; */
+    font-family: Rubik, sans-serif;
+    font-weight: 600;
+    max-width: 75vw;
+    margin-inline: auto;
+}
+
+p {
+    margin: 0;
+}
+
+#overlayBar {
+    margin-top: 1rem;
+    display: grid;
+    /* gap: .2rem; */
+    grid-template-columns: 3fr 1.5fr 3fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+    "event match weightClass" 
+    "red time blue";
+}
+
+#redBar, #blueBar, #timeBar, #eventBar, #weightBar, #matchBar {
+    display: flex;
+    /* outline: solid 2px #333; */
+    background-color: #fff8;
+    align-items: center;
+    justify-content: center;
+    padding: .5rem;
+}
+
+#redBar {
+    grid-area: red;
+    font-size: 2.5rem;
+    text-shadow: 1px 1px 3px #f33c, 2px 2px 10px #f335;
+}
+
+#blueBar {
+    grid-area: blue;
+    font-size: 2.5rem;
+    text-shadow: 1px 1px 3px #33fc, 2px 2px 10px #33f5;
+}
+
+#timeBar {
+    grid-area: time;
+    font-size: 3.5rem;
+    padding: .5rem 2rem;
+}
+
+#eventBar {
+    grid-area: event;
+    font-size: 1.75rem;
+}
+
+#weightBar {
+    grid-area: weightClass;
+    font-size: 1.75rem;
+}
+
+#matchBar {
+    grid-area: match;
+    font-size: 1.75rem;
+}

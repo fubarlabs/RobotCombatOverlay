@@ -16,8 +16,10 @@
         gap: 1rem;
     }
 
-    div {
-        /* border: 1px solid black; */
+    #weightClassControls {
+        display: flex;
+        flex-direction: column;
+        gap: .5rem;
     }
 </style>
 
@@ -26,22 +28,10 @@
     <hr>
     <div id="controlPanel">
 
-
-
         <div id="weightClassControls">
-
-            <label for="antRadio">Antweight
-                <input type="radio" name="weightClass" id="antRadio">
-            </label>
-            <label for="plantRadio">Plastic Ant
-                <input type="radio" name="weightClass" id="plantRadio">
-            </label>
-            <label for="beetleRadio">Beetleweight
-                <input type="radio" name="weightClass" id="beetleRadio">
-            </label>
-            <label for="freeformRadio">Other
-                <input type="radio" name="weightClass" id="freeformRadio" disabled>
-            </label>
+            <button id="antButton">Antweight</button>
+            <button id="plantButton">Plastic Ant</button>
+            <button id="beetleButton">Beetleweight</button>
         </div>
 
         <div id="matchDetailControls">
@@ -76,7 +66,7 @@
         </div>
     </div>
     <script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
-    <script src="controlpanel.js"></script>
+    <script src="controlpanel.js" type="module"></script>
 </body>
 
 </html>
