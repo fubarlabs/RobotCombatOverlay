@@ -23,12 +23,13 @@ p {
     grid-template-areas:
     "weightClass match event" 
     "red time blue";
+    background-color: #fffa;
+    border-radius: 1rem;
 }
 
 #redBar, #blueBar, #timeBar, #eventBar, #weightBar, #matchBar {
     display: flex;
     /* outline: solid 2px #333; */
-    background-color: #fff8;
     align-items: center;
     justify-content: center;
     padding: .5rem;

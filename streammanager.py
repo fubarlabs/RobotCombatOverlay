@@ -19,8 +19,11 @@ matchinfo   | Match info
 # Home Ethernet:
 # HOST = "192.168.1.31"
 
-# Phone Hotpost:
-HOST = "192.168.68.131"
+# # Phone Hotpost:
+# HOST = "192.168.68.131"
+
+# Neil's Router
+HOST = "192.168.1.4"
 
 PORT = 1883
 
@@ -37,8 +40,9 @@ import json
 def on_connect(client, userdata, flags, rc):
 
     print(f"Connected with result code {rc}")
-    client.subscribe("timecontrol")
-    client.subscribe("matchinfo")
+    # client.subscribe("timecontrol")
+    # client.subscribe("matchinfo")
+    client.subscribe("#")
 
 def on_message(client, userdata, msg):
     global match_info

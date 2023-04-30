@@ -1,43 +1,39 @@
 const robots = {
     'ant': [
-        'Silver Bullet',
-        'Shin Kicker',
+        'Charlie',
+        'Sandy Revenge',
+        'Mo',
+        'OneFace',
+        'Breakout',
+        'AHHH',
+        'Dulce de Lucha',
+        'Floormidable',
+        'Phantom',
+        'Nick San DX',
         'Tax Evasion',
-        'Impulse',
+        'Shin Kicker',
         'Cheesecake',
         'Under Construction',
-        'Nick San DX',
-        'Shotgun',
-        'Floormidable',
-        'Sandy Ravage',
-        'Phantom',
-        'RV Bot #1',
-        'RV Bot #2',
-        'RV Bot #3',
-        'RV Bot #4',
-        'Dulce de Lucha',
-        'Breakout',
-        'Mo'
+        'Shotgun'
     ],
     'plant': [
-        'Astral Cookie',
-        'Slight Annoyance',
+        'Grover',
         'Eschatology',
-        'Grover'
+        'Astral Cookie'
     ],
     'beetle': [
-        'Power Surge II',
-        'Jersey Devil',
         'Walter',
-        'Marvin',
-        '3Wood',
-        'Bar-Code',
-        'Shin Smasher',
-        'Voltage',
         'Regret',
-        'Half-Life',
+        'Jersey Devil',
+        '3Wood',
+        'Hellbot',
+        'Power Surge',
+        'Shin Smasher',
         'Caldera',
-        'Triton'
+        'Bar-Code',
+        'Triton',
+        'Half-Life',
+        'Marvin'
     ]
 }
 
